@@ -2,7 +2,7 @@ toc:
   properties:
     subcollection: security-compliance
     audience: platform
-    href: /docs/securoty-compliance-cli
+    href: /docs/security-compliance-cli
     path: security-compliance-cli
     label: Security and Compliance Center CLI
 
