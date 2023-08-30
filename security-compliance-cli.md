@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "[{CURRENT_YEAR}]"
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: "2023"
+lastupdated: "2023-08-30"
 
 subcollection: security-compliance-cli-plugin
 
@@ -10,7 +10,7 @@ keywords: security compliance CLI, security and compliance center CLI command li
 
 ---
 
-{[metadata-attributes.md]}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Security and Compliance Center CLI
