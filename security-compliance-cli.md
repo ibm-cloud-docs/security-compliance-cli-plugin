@@ -16,7 +16,7 @@ keywords: security compliance CLI, security and compliance center CLI command li
 # Security and Compliance Center CLI
 {: #security-compliance-cli}
 
-You can use the {[scc-full]} command-line interface (CLI) to manage your instances. 
+You can use the IBM Cloud Security and Compliance Center command-line interface (CLI) to manage your instances. 
 {: shortdesc}
 
 ## Prerequisites
