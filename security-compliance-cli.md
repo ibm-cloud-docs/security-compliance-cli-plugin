@@ -4,9 +4,9 @@ copyright:
   years: "[{CURRENT_YEAR}]"
 lastupdated: "[{LAST_UPDATED_DATE}]"
 
-subcollection: security-compliance
+subcollection: security-compliance-cli-plugin
 
-keywords: security compliance CLI, security and compliance center CLI command line , security compliance CLI terminal, security compliance CLI shell
+keywords: security compliance CLI, security and compliance center CLI command line , security compliance CLI terminal, security compliance CLI shell, seccurity compliance cli plugin
 
 ---
 
