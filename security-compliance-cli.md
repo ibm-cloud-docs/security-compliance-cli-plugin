@@ -13,16 +13,16 @@ keywords: security compliance CLI, security and compliance center CLI command li
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Security and Compliance Center CLI
+# Security and Compliance Center CLI Reference
 {: #security-compliance-cli}
 
-You can use the IBM Cloud Security and Compliance Center command-line interface (CLI) to manage your instances. 
+You can use the {{site.data.keyword.cloud_notm}} Security and Compliance Center command-line interface (CLI) to manage your instances. 
 {: shortdesc}
 
 ## Prerequisites
 {: #security-compliance-cli-prereq}
 
-* Install the [{[cloud]} CLI](/docs/cli?topic=cli-getting-started).
+* Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
 * Install the Security and Compliance Center CLI by running the following command:
 
    ```sh
