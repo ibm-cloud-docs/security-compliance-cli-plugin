@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: "[{CURRENT_YEAR}]"
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: "2023"
+lastupdated: "2023-08-30"
 
 subcollection: security-compliance-cli-plugin
 
@@ -10,19 +10,19 @@ keywords: security compliance CLI, security and compliance center CLI command li
 
 ---
 
-{[metadata-attributes.md]}
+{{site.data.keyword.attribute-definition-list}}
 
 
-# Security and Compliance Center CLI
+# Security and Compliance Center CLI Reference
 {: #security-compliance-cli}
 
-You can use the {[scc-full]} command-line interface (CLI) to manage your instances. 
+You can use the {{site.data.keyword.cloud_notm}} Security and Compliance Center command-line interface (CLI) to manage your instances. 
 {: shortdesc}
 
 ## Prerequisites
 {: #security-compliance-cli-prereq}
 
-* Install the [{[cloud]} CLI](/docs/cli?topic=cli-getting-started).
+* Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
 * Install the Security and Compliance Center CLI by running the following command:
 
    ```sh
