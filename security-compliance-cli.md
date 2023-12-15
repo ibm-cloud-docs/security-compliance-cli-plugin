@@ -2,11 +2,11 @@
 
 copyright:
   years: "2023"
-lastupdated: "2023-08-30"
+lastupdated: "2023-12-11"
 
 subcollection: security-compliance-cli-plugin
 
-keywords: security compliance CLI, security and compliance center CLI command line , security compliance CLI terminal, security compliance CLI shell, seccurity compliance cli plugin
+keywords: security compliance CLI, security and compliance center CLI command line , security compliance CLI terminal, security compliance CLI shell, security compliance cli plugin
 
 ---
 
@@ -19,6 +19,8 @@ keywords: security compliance CLI, security and compliance center CLI command li
 You can use the {{site.data.keyword.cloud_notm}} Security and Compliance Center command-line interface (CLI) to manage your instances. 
 {: shortdesc}
 
+Current version: **3.0.0**
+
 ## Prerequisites
 {: #security-compliance-cli-prereq}
 
@@ -26,7 +28,7 @@ You can use the {{site.data.keyword.cloud_notm}} Security and Compliance Center 
 * Install the Security and Compliance Center CLI by running the following command:
 
    ```sh
-   ibmcloud plugin install <security-compliance-cli-plugin>
+   ibmcloud plugin install security-compliance
    ```
    {: pre}
 
@@ -34,7 +36,8 @@ You can use the {{site.data.keyword.cloud_notm}} Security and Compliance Center 
 You're notified on the command line when updates to the {{site.data.keyword.cloud_notm}} CLI and plug-ins are available. Be sure to keep your CLI up to date so that you can use the latest commands. You can view the current version of all installed plug-ins by running `ibmcloud plugin list`.
 {: tip}
 
-<!-- Paste your generated CLI reference after this point -->
+
+
 
 ## Globals
 ### Options
@@ -70,20 +73,20 @@ Note: This example only demonstrates the global options available to all sub-com
 ## Provider types
 {: #security-compliance-provider-types-cli}
 
-Commands for ProviderTypes resource.
+Commands for Provider Type resources.
 
 ```sh
-ibmcloud security-compliance provider-types --help
+ibmcloud security-compliance provider-type --help
 ```
 
 
-### `ibmcloud security-compliance provider-types list`
+### `ibmcloud security-compliance provider-type list`
 {: #security-compliance-cli-provider-types-list-command}
 
 List all the registered provider types. For more information about connecting Workload Protection with the Security and Compliance Center, see [Connecting Workload Protection](/docs/security-compliance?topic=security-compliance-setup-workload-protection&interface=api#wp-register).
 
 ```sh
-ibmcloud security-compliance provider-types list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
@@ -104,24 +107,24 @@ ibmcloud security-compliance provider-types list [--x-correlation-id X-CORRELATI
 {: #security-compliance-provider-types-list-examples}
 
 ```sh
-ibmcloud security-compliance provider-types list \
+ibmcloud security-compliance provider-type list \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance provider-types provider-type-by-id-get`
-{: #security-compliance-cli-provider-types-provider-type-by-id-get-command}
+### `ibmcloud security-compliance provider-type get`
+{: #security-compliance-cli-provider-types-get-command}
 
 Retrieve a provider type by specifying its ID. For more information about integrations, see [Connecting Workload Protection](/docs/security-compliance?topic=security-compliance-setup-workload-protection).
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-by-id-get --provider-type-id PROVIDER-TYPE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type get --provider-type-id PROVIDER-TYPE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-provider-types-provider-type-by-id-get-cli-options}
+{: #security-compliance-provider-types-get-cli-options}
 
 `--provider-type-id` (string)
 :   The provider type ID. Required.
@@ -139,28 +142,28 @@ ibmcloud security-compliance provider-types provider-type-by-id-get --provider-t
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-provider-types-provider-type-by-id-get-examples}
+{: #security-compliance-provider-types-get-examples}
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-by-id-get \
+ibmcloud security-compliance provider-type get \
     --provider-type-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance provider-types provider-type-instances-list`
-{: #security-compliance-cli-provider-types-provider-type-instances-list-command}
+### `ibmcloud security-compliance provider-type instances`
+{: #security-compliance-cli-provider-type-instances-list-command}
 
 Retrieve all instances of provider type. For more information about integrations, see [Connecting Workload Protection](/docs/security-compliance?topic=security-compliance-setup-workload-protection).
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instances-list --provider-type-id PROVIDER-TYPE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type instances --provider-type-id PROVIDER-TYPE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-provider-types-provider-type-instances-list-cli-options}
+{: #security-compliance-provider-type-instances-list-cli-options}
 
 `--provider-type-id` (string)
 :   The provider type ID. Required.
@@ -178,28 +181,28 @@ ibmcloud security-compliance provider-types provider-type-instances-list --provi
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-provider-types-provider-type-instances-list-examples}
+{: #security-compliance-provider-type-instances-list-examples}
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instances-list \
+ibmcloud security-compliance provider-type instances \
     --provider-type-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance provider-types provider-type-instance-create`
-{: #security-compliance-cli-provider-types-provider-type-instance-create-command}
+### `ibmcloud security-compliance provider-type-instance create`
+{: #security-compliance-cli-provider-types-create-command}
 
 Create an instance of a provider type. For more information about integrations, see [Connecting Workload Protection](/docs/security-compliance?topic=security-compliance-setup-workload-protection).
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-create --provider-type-id PROVIDER-TYPE-ID [--name NAME] [--attributes ATTRIBUTES] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type-instance create --provider-type-id PROVIDER-TYPE-ID [--name NAME] [--attributes ATTRIBUTES] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-provider-types-provider-type-instance-create-cli-options}
+{: #security-compliance-provider-types-create-cli-options}
 
 `--provider-type-id` (string)
 :   The provider type ID. Required.
@@ -227,10 +230,10 @@ ibmcloud security-compliance provider-types provider-type-instance-create --prov
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-provider-types-provider-type-instance-create-examples}
+{: #security-compliance-provider-types-create-examples}
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-create \
+ibmcloud security-compliance provider-type-instance create \
     --provider-type-id=exampleString \
     --name=workload-protection-instance-1 \
     --attributes='{"anyKey": "anyValue"}' \
@@ -239,18 +242,18 @@ ibmcloud security-compliance provider-types provider-type-instance-create \
 ```
 {: pre}
 
-### `ibmcloud security-compliance provider-types provider-type-instance-delete`
-{: #security-compliance-cli-provider-types-provider-type-instance-delete-command}
+### `ibmcloud security-compliance provider-type-instance delete`
+{: #security-compliance-cli-provider-types-delete-command}
 
 Remove a specific instance of a provider type.
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-delete --provider-type-id PROVIDER-TYPE-ID --provider-type-instance-id PROVIDER-TYPE-INSTANCE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type-instance delete --provider-type-id PROVIDER-TYPE-ID --provider-type-instance-id PROVIDER-TYPE-INSTANCE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-provider-types-provider-type-instance-delete-cli-options}
+{: #security-compliance-provider-types-delete-cli-options}
 
 `--provider-type-id` (string)
 :   The provider type ID. Required.
@@ -273,10 +276,10 @@ ibmcloud security-compliance provider-types provider-type-instance-delete --prov
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-provider-types-provider-type-instance-delete-examples}
+{: #security-compliance-provider-types-delete-examples}
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-delete \
+ibmcloud security-compliance provider-type-instance delete \
     --provider-type-id=exampleString \
     --provider-type-instance-id=exampleString \
     --x-correlation-id=exampleString \
@@ -284,18 +287,18 @@ ibmcloud security-compliance provider-types provider-type-instance-delete \
 ```
 {: pre}
 
-### `ibmcloud security-compliance provider-types provider-type-instance-get`
-{: #security-compliance-cli-provider-types-provider-type-instance-get-command}
+### `ibmcloud security-compliance provider-type-instance get`
+{: #security-compliance-cli-provider-type-instances-get-command}
 
 Retrieve a provider type instance by specifying the provider type ID, and Security and Compliance Center instance ID. For more information about integrations, see [Connecting Workload Protection](/docs/security-compliance?topic=security-compliance-setup-workload-protection).
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-get --provider-type-id PROVIDER-TYPE-ID --provider-type-instance-id PROVIDER-TYPE-INSTANCE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type-instance get --provider-type-id PROVIDER-TYPE-ID --provider-type-instance-id PROVIDER-TYPE-INSTANCE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-provider-types-provider-type-instance-get-cli-options}
+{: #security-compliance-provider-type-instances-get-cli-options}
 
 `--provider-type-id` (string)
 :   The provider type ID. Required.
@@ -318,10 +321,10 @@ ibmcloud security-compliance provider-types provider-type-instance-get --provide
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-provider-types-provider-type-instance-get-examples}
+{: #security-compliance-provider-type-instances-get-examples}
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-get \
+ibmcloud security-compliance provider-type-instance get \
     --provider-type-id=exampleString \
     --provider-type-instance-id=exampleString \
     --x-correlation-id=exampleString \
@@ -329,18 +332,18 @@ ibmcloud security-compliance provider-types provider-type-instance-get \
 ```
 {: pre}
 
-### `ibmcloud security-compliance provider-types provider-type-instance-update`
-{: #security-compliance-cli-provider-types-provider-type-instance-update-command}
+### `ibmcloud security-compliance provider-type-instance update`
+{: #security-compliance-cli-provider-types-update-command}
 
 Patch a specific instance of a provider type.
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-update --provider-type-id PROVIDER-TYPE-ID --provider-type-instance-id PROVIDER-TYPE-INSTANCE-ID [--name NAME] [--attributes ATTRIBUTES] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type-instance update --provider-type-id PROVIDER-TYPE-ID --provider-type-instance-id PROVIDER-TYPE-INSTANCE-ID [--name NAME] [--attributes ATTRIBUTES] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-provider-types-provider-type-instance-update-cli-options}
+{: #security-compliance-provider-types-update-cli-options}
 
 `--provider-type-id` (string)
 :   The provider type ID. Required.
@@ -373,10 +376,10 @@ ibmcloud security-compliance provider-types provider-type-instance-update --prov
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-provider-types-provider-type-instance-update-examples}
+{: #security-compliance-provider-types-update-examples}
 
 ```sh
-ibmcloud security-compliance provider-types provider-type-instance-update \
+ibmcloud security-compliance provider-type-instance update \
     --provider-type-id=exampleString \
     --provider-type-instance-id=exampleString \
     --name=workload-protection-instance-1 \
@@ -386,18 +389,18 @@ ibmcloud security-compliance provider-types provider-type-instance-update \
 ```
 {: pre}
 
-### `ibmcloud security-compliance provider-types instances-get`
-{: #security-compliance-cli-provider-types-instances-get-command}
+### `ibmcloud security-compliance provider-type-instance list`
+{: #security-compliance-cli-provider-types-list-all-command}
 
 Get a list of instances for all provider types.
 
 ```sh
-ibmcloud security-compliance provider-types instances-get [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance provider-type-instance list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-provider-types-instances-get-cli-options}
+{: #security-compliance-provider-types-list-all-cli-options}
 
 `--x-correlation-id` (string)
 :   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this headers is not supplied in a request, the service generates a random (version 4) UUID.
@@ -410,10 +413,10 @@ ibmcloud security-compliance provider-types instances-get [--x-correlation-id X-
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-provider-types-instances-get-examples}
+{: #security-compliance-provider-types-list-all-examples}
 
 ```sh
-ibmcloud security-compliance provider-types instances-get \
+ibmcloud security-compliance provider-type-instance list \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
@@ -422,20 +425,20 @@ ibmcloud security-compliance provider-types instances-get \
 ## Settings
 {: #security-compliance-settings-cli}
 
-Commands for Settings resource.
+Commands for Setting resources.
 
 ```sh
-ibmcloud security-compliance settings --help
+ibmcloud security-compliance setting --help
 ```
 
 
-### `ibmcloud security-compliance settings get`
+### `ibmcloud security-compliance setting get`
 {: #security-compliance-cli-settings-get-command}
 
 Retrieve the settings of your service instance.
 
 ```sh
-ibmcloud security-compliance settings get [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance setting get [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
@@ -456,19 +459,19 @@ ibmcloud security-compliance settings get [--x-correlation-id X-CORRELATION-ID] 
 {: #security-compliance-settings-get-examples}
 
 ```sh
-ibmcloud security-compliance settings get \
+ibmcloud security-compliance setting get \
     --x-correlation-id=1a2b3c4d-5e6f-4a7b-8c9d-e0f1a2b3c4d5 \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance settings update`
+### `ibmcloud security-compliance setting update`
 {: #security-compliance-cli-settings-update-command}
 
 Update the settings of your service instance.
 
 ```sh
-ibmcloud security-compliance settings update [--event-notifications EVENT-NOTIFICATIONS] [--object-storage OBJECT-STORAGE] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance setting update [--event-notifications EVENT-NOTIFICATIONS] [--object-storage OBJECT-STORAGE] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
@@ -545,7 +548,7 @@ ibmcloud security-compliance settings update [--event-notifications EVENT-NOTIFI
 {: #security-compliance-settings-update-examples}
 
 ```sh
-ibmcloud security-compliance settings update \
+ibmcloud security-compliance setting update \
     --event-notifications='{"instance_crn": "crn:v1:staging:public:event-notifications:us-south:a/ff88f007f9ff4622aac4fbc0eda36255:7199ae60-a214-4dd8-9bf7-ce571de49d01::", "updated_on": "2019-01-01T12:00:00.000Z", "source_id": "crn:v1:staging:public:event-notifications:us-south:a/ff88f007f9ff4622aac4fbc0eda36255:b8b07245-0bbe-4478-b11c-0dce523105fd::", "source_description": "This source is used for integration with IBM Cloud Security and Compliance Center.", "source_name": "compliance"}' \
     --object-storage='{"instance_crn": "crn:v1:staging:public:cloud-object-storage:global:a/ff88f007f9ff4622aac4fbc0eda36255:7199ae60-a214-4dd8-9bf7-ce571de49d01::", "bucket": "px-scan-results", "bucket_location": "us-south", "bucket_endpoint": "exampleString", "updated_on": "2019-01-01T12:00:00.000Z"}' \
     --x-correlation-id=1a2b3c4d-5e6f-4a7b-8c9d-e0f1a2b3c4d5 \
@@ -555,7 +558,7 @@ ibmcloud security-compliance settings update \
 
 Alternatively, granular options are available for for the sub-fields of JSON string options:
 ```sh
-ibmcloud security-compliance settings update \
+ibmcloud security-compliance setting update \
     --x-correlation-id=1a2b3c4d-5e6f-4a7b-8c9d-e0f1a2b3c4d5 \
     --x-request-id=exampleString \
     --event-notifications-instance-crn=crn:v1:staging:public:cloud-object-storage:global:a/ff88f007f9ff4622aac4fbc0eda36255:7199ae60-a214-4dd8-9bf7-ce571de49d01:: \
@@ -571,13 +574,13 @@ ibmcloud security-compliance settings update \
 ```
 {: pre}
 
-### `ibmcloud security-compliance settings post-test-event`
+### `ibmcloud security-compliance setting post-test-event`
 {: #security-compliance-cli-settings-post-test-event-command}
 
 Send a test event to your Event Notifications instance to ensure that the events that are generated  by Security and Compliance Center are being forwarded to Event Notifications. For more information, see [Enabling event notifications](/docs/security-compliance?topic=security-compliance-event-notifications#event-notifications-test-api).
 
 ```sh
-ibmcloud security-compliance settings post-test-event [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance setting post-test-event [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
@@ -598,7 +601,7 @@ ibmcloud security-compliance settings post-test-event [--x-correlation-id X-CORR
 {: #security-compliance-settings-post-test-event-examples}
 
 ```sh
-ibmcloud security-compliance settings post-test-event \
+ibmcloud security-compliance setting post-test-event \
     --x-correlation-id=1a2b3c4d-5e6f-4a7b-8c9d-e0f1a2b3c4d5 \
     --x-request-id=exampleString
 ```
@@ -607,15 +610,15 @@ ibmcloud security-compliance settings post-test-event \
 ## Control libraries
 {: #security-compliance-control-libraries-cli}
 
-Commands for ControlLibraries resource.
+Commands for Control Library resources.
 
 ```sh
-ibmcloud security-compliance control-libraries --help
+ibmcloud security-compliance control-library --help
 ```
 
 
-### `ibmcloud security-compliance control-libraries list`
-{: #security-compliance-cli-control-libraries-list-command}
+### `ibmcloud security-compliance control-library list`
+{: #security-compliance-cli-control-libraries-list-all-command}
 
 Retrieve all of the control libraries that are available in your account, including predefined, and custom libraries.
 
@@ -623,12 +626,12 @@ With Security and Compliance Center, you can create a custom control library tha
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud security-compliance control-libraries list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--control-library-type CONTROL-LIBRARY-TYPE] [--start START]
+ibmcloud security-compliance control-library list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--control-library-type CONTROL-LIBRARY-TYPE] [--start START]
 ```
 
 
 #### Command options
-{: #security-compliance-control-libraries-list-cli-options}
+{: #security-compliance-control-libraries-list-all-cli-options}
 
 `--x-correlation-id` (string)
 :   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
@@ -656,13 +659,13 @@ ibmcloud security-compliance control-libraries list [--x-correlation-id X-CORREL
     The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/.*/`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for control-libraries-list.
+:   Invoke multiple requests to display all pages of the collection for control-libraries-list-all.
 
 #### Example
-{: #security-compliance-control-libraries-list-examples}
+{: #security-compliance-control-libraries-list-all-examples}
 
 ```sh
-ibmcloud security-compliance control-libraries list \
+ibmcloud security-compliance control-library list \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
     --limit=50 \
@@ -671,20 +674,20 @@ ibmcloud security-compliance control-libraries list \
 ```
 {: pre}
 
-### `ibmcloud security-compliance control-libraries custom-control-library-create`
-{: #security-compliance-cli-control-libraries-custom-control-library-create-command}
+### `ibmcloud security-compliance control-library create`
+{: #security-compliance-cli-control-libraries-create-command}
 
 Create a custom control library that is specific to your organization's needs.
 
 With Security and Compliance Center, you can create a custom control library that is specific to your organization's needs.  You define the controls and specifications before you map previously created assessments. Each control has several specifications  and assessments that are mapped to it. A specification is a defined requirement that is specific to a component. An assessment, or several,  are mapped to each specification with a detailed evaluation that is done to check whether the specification is compliant. For more information, see [Creating custom libraries](/docs/security-compliance?topic=security-compliance-custom-library).
 
 ```sh
-ibmcloud security-compliance control-libraries custom-control-library-create --control-library-name CONTROL-LIBRARY-NAME --control-library-description CONTROL-LIBRARY-DESCRIPTION --control-library-type CONTROL-LIBRARY-TYPE --controls CONTROLS [--version-group-label VERSION-GROUP-LABEL] [--control-library-version CONTROL-LIBRARY-VERSION] [--latest LATEST] [--controls-count CONTROLS-COUNT] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance control-library create --control-library-name CONTROL-LIBRARY-NAME --control-library-description CONTROL-LIBRARY-DESCRIPTION --control-library-type CONTROL-LIBRARY-TYPE --controls CONTROLS [--version-group-label VERSION-GROUP-LABEL] [--control-library-version CONTROL-LIBRARY-VERSION] [--latest LATEST] [--controls-count CONTROLS-COUNT] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-control-libraries-custom-control-library-create-cli-options}
+{: #security-compliance-control-libraries-create-cli-options}
 
 `--control-library-name` (string)
 :   The control library name. Required.
@@ -735,14 +738,14 @@ ibmcloud security-compliance control-libraries custom-control-library-create --c
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-control-libraries-custom-control-library-create-examples}
+{: #security-compliance-control-libraries-create-examples}
 
 ```sh
-ibmcloud security-compliance control-libraries custom-control-library-create \
+ibmcloud security-compliance control-library create \
     --control-library-name='IBM Cloud for Financial Services' \
     --control-library-description='IBM Cloud for Financial Services' \
     --control-library-type=custom \
-    --controls='[{"control_name": "SC-7", "control_id": "1fa45e17-9322-4e6c-bbd6-1c51db08e790", "control_description": "Boundary Protection", "control_category": "System and Communications Protection", "control_parent": "exampleString", "control_tags": ["1fa45e17-9322-4e6c-bbd6-1c51db08e790"], "control_specifications": [{"control_specification_id": "5c7d6f88-a92f-4734-9b49-bd22b0900184", "responsibility": "user", "component_id": "iam-identity", "componenet_name": "exampleString", "environment": "ibm-cloud", "control_specification_description": "IBM cloud", "assessments_count": 38, "assessments": [{"assessment_id": "rule-a637949b-7e51-46c4-afd4-b96619001bf1", "assessment_method": "ibm-cloud-rule", "assessment_type": "automated", "assessment_description": "Check that there is an Activity Tracker event route defined to collect global events generated by IBM Cloud services", "parameter_count": 38, "parameters": [{"parameter_name": "session_invalidation_in_seconds", "parameter_display_name": "Sign out due to inactivity in seconds", "parameter_type": "numeric", "parameter_value": "public"}]}]}], "control_docs": {"control_docs_id": "sc-7", "control_docs_type": "ibm-cloud"}, "control_requirement": true, "status": "enabled"}]' \
+    --controls='[{"control_name": "SC-7", "control_id": "1fa45e17-9322-4e6c-bbd6-1c51db08e790", "control_description": "Boundary Protection", "control_category": "System and Communications Protection", "control_parent": "exampleString", "control_tags": ["1fa45e17-9322-4e6c-bbd6-1c51db08e790"], "control_specifications": [{"control_specification_id": "5c7d6f88-a92f-4734-9b49-bd22b0900184", "responsibility": "user", "component_id": "iam-identity", "component_name": "exampleString", "environment": "ibm-cloud", "control_specification_description": "IBM cloud", "assessments_count": 38, "assessments": [{"assessment_id": "rule-a637949b-7e51-46c4-afd4-b96619001bf1", "assessment_method": "ibm-cloud-rule", "assessment_type": "automated", "assessment_description": "Check that there is an Activity Tracker event route defined to collect global events generated by IBM Cloud services", "parameter_count": 38, "parameters": [{"parameter_name": "session_invalidation_in_seconds", "parameter_display_name": "Sign out due to inactivity in seconds", "parameter_type": "numeric", "parameter_value": "public"}]}]}], "control_docs": {"control_docs_id": "sc-7", "control_docs_type": "ibm-cloud"}, "control_requirement": true, "status": "enabled"}]' \
     --version-group-label=33fc7b80-0fa5-4f16-bbba-1f293f660f0d \
     --control-library-version=1.0.0 \
     --latest=true \
@@ -752,20 +755,20 @@ ibmcloud security-compliance control-libraries custom-control-library-create \
 ```
 {: pre}
 
-### `ibmcloud security-compliance control-libraries custom-control-library-delete`
-{: #security-compliance-cli-control-libraries-custom-control-library-delete-command}
+### `ibmcloud security-compliance control-library delete`
+{: #security-compliance-cli-control-libraries-delete-command}
 
 Delete a custom control library by providing the control library ID.  You can find this ID by looking in the Security and Compliance Center UI.
 
 With Security and Compliance Center, you can manage a custom control library  that is specific to your organization's needs. Each control has several specifications  and assessments that are mapped to it.  For more information, see [Creating custom libraries](/docs/security-compliance?topic=security-compliance-custom-library).
 
 ```sh
-ibmcloud security-compliance control-libraries custom-control-library-delete --control-libraries-id CONTROL-LIBRARIES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance control-library delete --control-libraries-id CONTROL-LIBRARIES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-control-libraries-custom-control-library-delete-cli-options}
+{: #security-compliance-control-libraries-delete-cli-options}
 
 `--control-libraries-id` (string)
 :   The control library ID. Required.
@@ -783,30 +786,30 @@ ibmcloud security-compliance control-libraries custom-control-library-delete --c
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-control-libraries-custom-control-library-delete-examples}
+{: #security-compliance-control-libraries-delete-examples}
 
 ```sh
-ibmcloud security-compliance control-libraries custom-control-library-delete \
+ibmcloud security-compliance control-library delete \
     --control-libraries-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance control-libraries control-library-get`
-{: #security-compliance-cli-control-libraries-control-library-get-command}
+### `ibmcloud security-compliance control-library get`
+{: #security-compliance-cli-control-libraries-get-command}
 
 View the details of a control library by specifying its ID.
 
 With Security and Compliance Center, you can create a custom control library that is specific to your organization's needs.  You define the controls and specifications before you map previously created assessments. Each control has several specifications  and assessments that are mapped to it. A specification is a defined requirement that is specific to a component. An assessment, or several,  are mapped to each specification with a detailed evaluation that is done to check whether the specification is compliant. For more information, see [Creating custom libraries](/docs/security-compliance?topic=security-compliance-custom-library).
 
 ```sh
-ibmcloud security-compliance control-libraries control-library-get --control-libraries-id CONTROL-LIBRARIES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance control-library get --control-libraries-id CONTROL-LIBRARIES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-control-libraries-control-library-get-cli-options}
+{: #security-compliance-control-libraries-get-cli-options}
 
 `--control-libraries-id` (string)
 :   The control library ID. Required.
@@ -824,30 +827,30 @@ ibmcloud security-compliance control-libraries control-library-get --control-lib
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-control-libraries-control-library-get-examples}
+{: #security-compliance-control-libraries-get-examples}
 
 ```sh
-ibmcloud security-compliance control-libraries control-library-get \
+ibmcloud security-compliance control-library get \
     --control-libraries-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance control-libraries custom-control-library-replace`
-{: #security-compliance-cli-control-libraries-custom-control-library-replace-command}
+### `ibmcloud security-compliance control-library update`
+{: #security-compliance-cli-control-libraries-update-command}
 
 Update a custom control library by providing the control library ID. You can find this ID in the Security and Compliance Center UI.
 
 With Security and Compliance Center, you can create and update a custom control library that is specific to your organization's needs.  You define the controls and specifications before you map previously created assessments. Each control has several specifications  and assessments that are mapped to it. For more information, see [Creating custom libraries](/docs/security-compliance?topic=security-compliance-custom-library).
 
 ```sh
-ibmcloud security-compliance control-libraries custom-control-library-replace --control-libraries-id CONTROL-LIBRARIES-ID [--id ID] [--account-id ACCOUNT-ID] [--control-library-name CONTROL-LIBRARY-NAME] [--control-library-description CONTROL-LIBRARY-DESCRIPTION] [--control-library-type CONTROL-LIBRARY-TYPE] [--version-group-label VERSION-GROUP-LABEL] [--control-library-version CONTROL-LIBRARY-VERSION] [--created-on CREATED-ON] [--created-by CREATED-BY] [--updated-on UPDATED-ON] [--updated-by UPDATED-BY] [--latest LATEST] [--hierarchy-enabled HIERARCHY-ENABLED] [--controls-count CONTROLS-COUNT] [--control-parents-count CONTROL-PARENTS-COUNT] [--controls CONTROLS] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance control-library update --control-libraries-id CONTROL-LIBRARIES-ID [--id ID] [--account-id ACCOUNT-ID] [--control-library-name CONTROL-LIBRARY-NAME] [--control-library-description CONTROL-LIBRARY-DESCRIPTION] [--control-library-type CONTROL-LIBRARY-TYPE] [--version-group-label VERSION-GROUP-LABEL] [--control-library-version CONTROL-LIBRARY-VERSION] [--created-on CREATED-ON] [--created-by CREATED-BY] [--updated-on UPDATED-ON] [--updated-by UPDATED-BY] [--latest LATEST] [--hierarchy-enabled HIERARCHY-ENABLED] [--controls-count CONTROLS-COUNT] [--control-parents-count CONTROL-PARENTS-COUNT] [--controls CONTROLS] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-control-libraries-custom-control-library-replace-cli-options}
+{: #security-compliance-control-libraries-update-cli-options}
 
 `--control-libraries-id` (string)
 :   The control library ID. Required.
@@ -935,10 +938,10 @@ ibmcloud security-compliance control-libraries custom-control-library-replace --
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-control-libraries-custom-control-library-replace-examples}
+{: #security-compliance-control-libraries-update-examples}
 
 ```sh
-ibmcloud security-compliance control-libraries custom-control-library-replace \
+ibmcloud security-compliance control-library update \
     --control-libraries-id=exampleString \
     --id=exampleString \
     --account-id=exampleString \
@@ -955,7 +958,7 @@ ibmcloud security-compliance control-libraries custom-control-library-replace \
     --hierarchy-enabled=true \
     --controls-count=38 \
     --control-parents-count=38 \
-    --controls='[{"control_name": "SC-7", "control_id": "1fa45e17-9322-4e6c-bbd6-1c51db08e790", "control_description": "Boundary Protection", "control_category": "System and Communications Protection", "control_parent": "exampleString", "control_tags": ["1fa45e17-9322-4e6c-bbd6-1c51db08e790"], "control_specifications": [{"control_specification_id": "5c7d6f88-a92f-4734-9b49-bd22b0900184", "responsibility": "user", "component_id": "iam-identity", "componenet_name": "exampleString", "environment": "ibm-cloud", "control_specification_description": "IBM cloud", "assessments_count": 38, "assessments": [{"assessment_id": "rule-a637949b-7e51-46c4-afd4-b96619001bf1", "assessment_method": "ibm-cloud-rule", "assessment_type": "automated", "assessment_description": "Check that there is an Activity Tracker event route defined to collect global events generated by IBM Cloud services", "parameter_count": 38, "parameters": [{"parameter_name": "session_invalidation_in_seconds", "parameter_display_name": "Sign out due to inactivity in seconds", "parameter_type": "numeric", "parameter_value": "public"}]}]}], "control_docs": {"control_docs_id": "sc-7", "control_docs_type": "ibm-cloud"}, "control_requirement": true, "status": "enabled"}]' \
+    --controls='[{"control_name": "SC-7", "control_id": "1fa45e17-9322-4e6c-bbd6-1c51db08e790", "control_description": "Boundary Protection", "control_category": "System and Communications Protection", "control_parent": "exampleString", "control_tags": ["1fa45e17-9322-4e6c-bbd6-1c51db08e790"], "control_specifications": [{"control_specification_id": "5c7d6f88-a92f-4734-9b49-bd22b0900184", "responsibility": "user", "component_id": "iam-identity", "component_name": "exampleString", "environment": "ibm-cloud", "control_specification_description": "IBM cloud", "assessments_count": 38, "assessments": [{"assessment_id": "rule-a637949b-7e51-46c4-afd4-b96619001bf1", "assessment_method": "ibm-cloud-rule", "assessment_type": "automated", "assessment_description": "Check that there is an Activity Tracker event route defined to collect global events generated by IBM Cloud services", "parameter_count": 38, "parameters": [{"parameter_name": "session_invalidation_in_seconds", "parameter_display_name": "Sign out due to inactivity in seconds", "parameter_type": "numeric", "parameter_value": "public"}]}]}], "control_docs": {"control_docs_id": "sc-7", "control_docs_type": "ibm-cloud"}, "control_requirement": true, "status": "enabled"}]' \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
@@ -964,26 +967,81 @@ ibmcloud security-compliance control-libraries custom-control-library-replace \
 ## Profiles
 {: #security-compliance-profiles-cli}
 
-Commands for Profiles resource.
+Commands for Profile resources.
 
 ```sh
-ibmcloud security-compliance profiles --help
+ibmcloud security-compliance profile --help
 ```
 
 
-### `ibmcloud security-compliance profiles list`
-{: #security-compliance-cli-profiles-list-command}
+### `ibmcloud security-compliance profile attachments`
+{: #security-compliance-cli-attachments-list-command}
+
+View all of the attachments that are linked to a specific profile.  An attachment is the association between the set of resources that you want to evaluate  and a profile that contains the specific controls that you want to use. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
+Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
+
+```sh
+ibmcloud security-compliance profile attachments --profile-id PROFILE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--start START]
+```
+
+
+#### Command options
+{: #security-compliance-attachments-list-cli-options}
+
+`--profile-id` (string)
+:   The profile ID. Required.
+
+    The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
+
+`--x-correlation-id` (string)
+:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
+
+    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
+
+`--x-request-id` (string)
+:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is not used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
+
+    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
+
+`--limit` (int64)
+:   The indication of how many resources to return, unless the response is the last page of resources.
+
+    The default value is `50`. The maximum value is `100`. The minimum value is `0`.
+
+`--start` (string)
+:   Determine what resource to start the page on or after.
+
+    The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/.*/`.
+
+`--all-pages` (bool)
+:   Invoke multiple requests to display all pages of the collection for attachments-list.
+
+#### Example
+{: #security-compliance-attachments-list-examples}
+
+```sh
+ibmcloud security-compliance profile attachments \
+    --profile-id=exampleString \
+    --x-correlation-id=exampleString \
+    --x-request-id=exampleString \
+    --limit=10 \
+    --start=exampleString
+```
+{: pre}
+
+### `ibmcloud security-compliance profile list`
+{: #security-compliance-cli-profiles-list-all-command}
 
 View all of the predefined and custom profiles that are available in your account.
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud security-compliance profiles list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--profile-type PROFILE-TYPE] [--start START]
+ibmcloud security-compliance profile list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--profile-type PROFILE-TYPE] [--start START]
 ```
 
 
 #### Command options
-{: #security-compliance-profiles-list-cli-options}
+{: #security-compliance-profiles-list-all-cli-options}
 
 `--x-correlation-id` (string)
 :   The supplied or generated value of this header is logged for a request, and repeated in a response header for the corresponding response. The same value is used for downstream requests, and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
@@ -1011,13 +1069,13 @@ ibmcloud security-compliance profiles list [--x-correlation-id X-CORRELATION-ID]
     The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/.*/`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for profiles-list.
+:   Invoke multiple requests to display all pages of the collection for profiles-list-all.
 
 #### Example
-{: #security-compliance-profiles-list-examples}
+{: #security-compliance-profiles-list-all-examples}
 
 ```sh
-ibmcloud security-compliance profiles list \
+ibmcloud security-compliance profile list \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
     --limit=10 \
@@ -1026,18 +1084,18 @@ ibmcloud security-compliance profiles list \
 ```
 {: pre}
 
-### `ibmcloud security-compliance profiles profile-create`
-{: #security-compliance-cli-profiles-profile-create-command}
+### `ibmcloud security-compliance profile create`
+{: #security-compliance-cli-profiles-create-command}
 
 Create a custom profile that is specific to your usecase, by using an existing library as a starting point.  For more information, see [Building custom profiles](/docs/security-compliance?topic=security-compliance-build-custom-profiles&interface=api).
 
 ```sh
-ibmcloud security-compliance profiles profile-create --profile-name PROFILE-NAME --profile-description PROFILE-DESCRIPTION --profile-type PROFILE-TYPE --controls CONTROLS --default-parameters DEFAULT-PARAMETERS [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance profile create --profile-name PROFILE-NAME --profile-description PROFILE-DESCRIPTION --profile-type PROFILE-TYPE --controls CONTROLS --default-parameters DEFAULT-PARAMETERS [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-profiles-profile-create-cli-options}
+{: #security-compliance-profiles-create-cli-options}
 
 `--profile-name` (string)
 :   The name of the profile. Required.
@@ -1079,10 +1137,10 @@ ibmcloud security-compliance profiles profile-create --profile-name PROFILE-NAME
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-profiles-profile-create-examples}
+{: #security-compliance-profiles-create-examples}
 
 ```sh
-ibmcloud security-compliance profiles profile-create \
+ibmcloud security-compliance profile create \
     --profile-name=test_profile1 \
     --profile-description=test_description1 \
     --profile-type=custom \
@@ -1093,20 +1151,20 @@ ibmcloud security-compliance profiles profile-create \
 ```
 {: pre}
 
-### `ibmcloud security-compliance profiles custom-profile-delete`
-{: #security-compliance-cli-profiles-custom-profile-delete-command}
+### `ibmcloud security-compliance profile delete`
+{: #security-compliance-cli-profiles-delete-command}
 
 Delete a custom profile by providing the profile ID.  You can find the ID in the Security and Compliance Center UI. For more information about managing your custom profiles, see [Building custom profiles](/docs/security-compliance?topic=security-compliance-build-custom-profiles&interface=api).
 
 ```sh
-ibmcloud security-compliance profiles custom-profile-delete --profiles-id PROFILES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance profile delete --profile-id PROFILE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-profiles-custom-profile-delete-cli-options}
+{: #security-compliance-profiles-delete-cli-options}
 
-`--profiles-id` (string)
+`--profile-id` (string)
 :   The profile ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
@@ -1122,30 +1180,30 @@ ibmcloud security-compliance profiles custom-profile-delete --profiles-id PROFIL
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-profiles-custom-profile-delete-examples}
+{: #security-compliance-profiles-delete-examples}
 
 ```sh
-ibmcloud security-compliance profiles custom-profile-delete \
-    --profiles-id=exampleString \
+ibmcloud security-compliance profile delete \
+    --profile-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance profiles profile-get`
-{: #security-compliance-cli-profiles-profile-get-command}
+### `ibmcloud security-compliance profile get`
+{: #security-compliance-cli-profiles-get-command}
 
 View the details of a profile by providing the profile ID.  You can find the profile ID in the Security and Compliance Center UI. For more information, see [Building custom profiles](/docs/security-compliance?topic=security-compliance-build-custom-profiles&interface=api).
 
 ```sh
-ibmcloud security-compliance profiles profile-get --profiles-id PROFILES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance profile get --profile-id PROFILE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-profiles-profile-get-cli-options}
+{: #security-compliance-profiles-get-cli-options}
 
-`--profiles-id` (string)
+`--profile-id` (string)
 :   The profile ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
@@ -1161,30 +1219,30 @@ ibmcloud security-compliance profiles profile-get --profiles-id PROFILES-ID [--x
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-profiles-profile-get-examples}
+{: #security-compliance-profiles-get-examples}
 
 ```sh
-ibmcloud security-compliance profiles profile-get \
-    --profiles-id=exampleString \
+ibmcloud security-compliance profile get \
+    --profile-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance profiles profile-replace`
-{: #security-compliance-cli-profiles-profile-replace-command}
+### `ibmcloud security-compliance profile update`
+{: #security-compliance-cli-profiles-update-command}
 
 Update the details of a custom profile. With Security and Compliance Center, you can manage  a profile that is specific to your usecase, by using an existing library as a starting point.  For more information, see [Building custom profiles](/docs/security-compliance?topic=security-compliance-build-custom-profiles&interface=api).
 
 ```sh
-ibmcloud security-compliance profiles profile-replace --profiles-id PROFILES-ID --profile-name PROFILE-NAME --profile-description PROFILE-DESCRIPTION --profile-type PROFILE-TYPE --controls CONTROLS --default-parameters DEFAULT-PARAMETERS [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance profile update --profile-id PROFILE-ID --profile-name PROFILE-NAME --profile-description PROFILE-DESCRIPTION --profile-type PROFILE-TYPE --controls CONTROLS --default-parameters DEFAULT-PARAMETERS [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-profiles-profile-replace-cli-options}
+{: #security-compliance-profiles-update-cli-options}
 
-`--profiles-id` (string)
+`--profile-id` (string)
 :   The profile ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
@@ -1229,11 +1287,11 @@ ibmcloud security-compliance profiles profile-replace --profiles-id PROFILES-ID 
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-profiles-profile-replace-examples}
+{: #security-compliance-profiles-update-examples}
 
 ```sh
-ibmcloud security-compliance profiles profile-replace \
-    --profiles-id=exampleString \
+ibmcloud security-compliance profile update \
+    --profile-id=exampleString \
     --profile-name=test_profile1 \
     --profile-description=test_description1 \
     --profile-type=custom \
@@ -1247,20 +1305,20 @@ ibmcloud security-compliance profiles profile-replace \
 ## Rules
 {: #security-compliance-rules-cli}
 
-Commands for Rules resource.
+Commands for Rule resources.
 
 ```sh
-ibmcloud security-compliance rules --help
+ibmcloud security-compliance rule --help
 ```
 
 
-### `ibmcloud security-compliance rules list`
+### `ibmcloud security-compliance rule list`
 {: #security-compliance-cli-rules-list-command}
 
 Retrieve all the rules that you use to target the exact configuration properties  that you need to ensure are compliant. For more information, see [Defining custom rules](/docs/security-compliance?topic=security-compliance-rules-define).
 
 ```sh
-ibmcloud security-compliance rules list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--type TYPE] [--search SEARCH] [--service-name SERVICE-NAME]
+ibmcloud security-compliance rule list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--type TYPE] [--search SEARCH] [--service-name SERVICE-NAME]
 ```
 
 
@@ -1296,7 +1354,7 @@ ibmcloud security-compliance rules list [--x-correlation-id X-CORRELATION-ID] [-
 {: #security-compliance-rules-list-examples}
 
 ```sh
-ibmcloud security-compliance rules list \
+ibmcloud security-compliance rule list \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
     --type=system_defined \
@@ -1305,18 +1363,18 @@ ibmcloud security-compliance rules list \
 ```
 {: pre}
 
-### `ibmcloud security-compliance rules rule-create`
-{: #security-compliance-cli-rules-rule-create-command}
+### `ibmcloud security-compliance rule create`
+{: #security-compliance-cli-rules-create-command}
 
 Create a custom rule to to target the exact configuration properties  that you need to evaluate your resources for compliance. For more information, see [Defining custom rules](/docs/security-compliance?topic=security-compliance-rules-define).
 
 ```sh
-ibmcloud security-compliance rules rule-create --description DESCRIPTION [--target TARGET] [--required-config REQUIRED-CONFIG] [--type TYPE] [--version VERSION] [--import IMPORT] [--labels LABELS] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance rule create --description DESCRIPTION [--target TARGET] [--required-config REQUIRED-CONFIG] [--type TYPE] [--version VERSION] [--import IMPORT] [--labels LABELS] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-rules-rule-create-cli-options}
+{: #security-compliance-rules-create-cli-options}
 
 `--description` (string)
 :   The rule description. Required.
@@ -1427,10 +1485,10 @@ ibmcloud security-compliance rules rule-create --description DESCRIPTION [--targ
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--import-parameters=@path/to/file.json`.
 
 #### Examples
-{: #security-compliance-rules-rule-create-examples}
+{: #security-compliance-rules-create-examples}
 
 ```sh
-ibmcloud security-compliance rules rule-create \
+ibmcloud security-compliance rule create \
     --description='Example rule' \
     --target='{"service_name": "cloud-object-storage", "service_display_name": "exampleString", "resource_kind": "bucket", "additional_target_attributes": [{"name": "location", "operator": "string_equals", "value": "us-east"}]}' \
     --required-config='{"description": "The Cloud Object Storage rule.", "and": [{"description": "exampleString", "property": "hard_quota", "operator": "num_equals", "value": "${hard_quota}"}]}' \
@@ -1445,7 +1503,7 @@ ibmcloud security-compliance rules rule-create \
 
 Alternatively, granular options are available for for the sub-fields of JSON string options:
 ```sh
-ibmcloud security-compliance rules rule-create \
+ibmcloud security-compliance rule create \
     --description='Example rule' \
     --type=user_defined \
     --version=1.0.0 \
@@ -1466,18 +1524,18 @@ ibmcloud security-compliance rules rule-create \
 ```
 {: pre}
 
-### `ibmcloud security-compliance rules rule-delete`
-{: #security-compliance-cli-rules-rule-delete-command}
+### `ibmcloud security-compliance rule delete`
+{: #security-compliance-cli-rules-delete-command}
 
 Delete a custom rule that you no longer require to evaluate your resources. For more information, see [Defining custom rules](/docs/security-compliance?topic=security-compliance-rules-define).
 
 ```sh
-ibmcloud security-compliance rules rule-delete --rule-id RULE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance rule delete --rule-id RULE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-rules-rule-delete-cli-options}
+{: #security-compliance-rules-delete-cli-options}
 
 `--rule-id` (string)
 :   The ID of the corresponding rule. Required.
@@ -1495,28 +1553,28 @@ ibmcloud security-compliance rules rule-delete --rule-id RULE-ID [--x-correlatio
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-rules-rule-delete-examples}
+{: #security-compliance-rules-delete-examples}
 
 ```sh
-ibmcloud security-compliance rules rule-delete \
+ibmcloud security-compliance rule delete \
     --rule-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance rules rule-get`
-{: #security-compliance-cli-rules-rule-get-command}
+### `ibmcloud security-compliance rule get`
+{: #security-compliance-cli-rules-get-command}
 
 Retrieve a rule that you created to evaluate your resources.  For more information, see [Defining custom rules](/docs/security-compliance?topic=security-compliance-rules-define).
 
 ```sh
-ibmcloud security-compliance rules rule-get --rule-id RULE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance rule get --rule-id RULE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-rules-rule-get-cli-options}
+{: #security-compliance-rules-get-cli-options}
 
 `--rule-id` (string)
 :   The ID of the corresponding rule. Required.
@@ -1534,28 +1592,28 @@ ibmcloud security-compliance rules rule-get --rule-id RULE-ID [--x-correlation-i
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-rules-rule-get-examples}
+{: #security-compliance-rules-get-examples}
 
 ```sh
-ibmcloud security-compliance rules rule-get \
+ibmcloud security-compliance rule get \
     --rule-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance rules rule-replace`
-{: #security-compliance-cli-rules-rule-replace-command}
+### `ibmcloud security-compliance rule update`
+{: #security-compliance-cli-rules-update-command}
 
 Update a custom rule that you use to target the exact configuration properties  that you need to evaluate your resources for compliance. For more information, see [Defining custom rules](/docs/security-compliance?topic=security-compliance-rules-define).
 
 ```sh
-ibmcloud security-compliance rules rule-replace --rule-id RULE-ID --if-match IF-MATCH --description DESCRIPTION [--target TARGET] [--required-config REQUIRED-CONFIG] [--type TYPE] [--version VERSION] [--import IMPORT] [--labels LABELS] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance rule update --rule-id RULE-ID --if-match IF-MATCH --description DESCRIPTION [--target TARGET] [--required-config REQUIRED-CONFIG] [--type TYPE] [--version VERSION] [--import IMPORT] [--labels LABELS] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-rules-rule-replace-cli-options}
+{: #security-compliance-rules-update-cli-options}
 
 `--rule-id` (string)
 :   The ID of the corresponding rule. Required.
@@ -1678,10 +1736,10 @@ To find the `Etag` value, run a GET request on the resource that you want to mod
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--import-parameters=@path/to/file.json`.
 
 #### Examples
-{: #security-compliance-rules-rule-replace-examples}
+{: #security-compliance-rules-update-examples}
 
 ```sh
-ibmcloud security-compliance rules rule-replace \
+ibmcloud security-compliance rule update \
     --rule-id=exampleString \
     --if-match=exampleString \
     --description='Example rule' \
@@ -1698,7 +1756,7 @@ ibmcloud security-compliance rules rule-replace \
 
 Alternatively, granular options are available for for the sub-fields of JSON string options:
 ```sh
-ibmcloud security-compliance rules rule-replace \
+ibmcloud security-compliance rule update \
     --rule-id=exampleString \
     --if-match=exampleString \
     --description='Example rule' \
@@ -1724,82 +1782,27 @@ ibmcloud security-compliance rules rule-replace \
 ## Attachments
 {: #security-compliance-attachments-cli}
 
-Commands for Attachments resource.
+Commands for Attachment resources.
 
 ```sh
-ibmcloud security-compliance attachments --help
+ibmcloud security-compliance attachment --help
 ```
 
 
-### `ibmcloud security-compliance attachments list`
-{: #security-compliance-cli-attachments-list-command}
-
-View all of the attachments that are linked to a specific profile.  An attachment is the association between the set of resources that you want to evaluate  and a profile that contains the specific controls that you want to use. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
-Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
-
-```sh
-ibmcloud security-compliance attachments list --profiles-id PROFILES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--start START]
-```
-
-
-#### Command options
-{: #security-compliance-attachments-list-cli-options}
-
-`--profiles-id` (string)
-:   The profile ID. Required.
-
-    The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
-
-`--x-correlation-id` (string)
-:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
-
-    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
-
-`--x-request-id` (string)
-:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is not used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
-
-    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
-
-`--limit` (int64)
-:   The indication of how many resources to return, unless the response is the last page of resources.
-
-    The default value is `50`. The maximum value is `100`. The minimum value is `0`.
-
-`--start` (string)
-:   Determine what resource to start the page on or after.
-
-    The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/.*/`.
-
-`--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for attachments-list.
-
-#### Example
-{: #security-compliance-attachments-list-examples}
-
-```sh
-ibmcloud security-compliance attachments list \
-    --profiles-id=exampleString \
-    --x-correlation-id=exampleString \
-    --x-request-id=exampleString \
-    --limit=10 \
-    --start=exampleString
-```
-{: pre}
-
-### `ibmcloud security-compliance attachments attachment-create`
-{: #security-compliance-cli-attachments-attachment-create-command}
+### `ibmcloud security-compliance attachment create`
+{: #security-compliance-cli-attachments-create-command}
 
 Create an attachment to link to a profile to schedule evaluations  of your resources on a recurring schedule, or on-demand. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
 
 ```sh
-ibmcloud security-compliance attachments attachment-create --profiles-id PROFILES-ID --attachments ATTACHMENTS [--profile-id PROFILE-ID] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance attachment create --profile-id PROFILE-ID --attachments ATTACHMENTS [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-attachments-attachment-create-cli-options}
+{: #security-compliance-attachments-create-cli-options}
 
-`--profiles-id` (string)
+`--profile-id` (string)
 :   The profile ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
@@ -1811,8 +1814,48 @@ ibmcloud security-compliance attachments attachment-create --profiles-id PROFILE
 
     Provide a JSON string option or specify a JSON file to read from by providing a filepath option that begins with a `@`, e.g. `--attachments=@path/to/file.json`.
 
+`--x-correlation-id` (string)
+:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
+
+    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
+
+`--x-request-id` (string)
+:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is not used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
+
+    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
+
+#### Example
+{: #security-compliance-attachments-create-examples}
+
+```sh
+ibmcloud security-compliance attachment create \
+    --profile-id=exampleString \
+    --attachments='[{"id": "130003ea8bfa43c5aacea07a86da3000", "name": "account-0d8c3805dfea40aa8ad02265a18eb12b", "description": "Test description", "scope": [{"environment": "ibm-cloud", "properties": [{"name": "scope_id", "value": "cg3335893hh1428692d6747cf300yeb5"}]}], "status": "enabled", "schedule": "every_30_days", "notifications": {"enabled": false, "controls": {"threshold_limit": 15, "failed_control_ids": []}}, "attachment_parameters": [{"assessment_type": "Automated", "assessment_id": "rule-a637949b-7e51-46c4-afd4-b96619001bf1", "parameter_name": "session_invalidation_in_seconds", "parameter_value": "120", "parameter_display_name": "Sign out due to inactivity in seconds", "parameter_type": "numeric"}]}]' \
+    --x-correlation-id=exampleString \
+    --x-request-id=exampleString
+```
+{: pre}
+
+### `ibmcloud security-compliance attachment delete`
+{: #security-compliance-cli-attachments-delete-command}
+
+Delete an attachment. Alternatively, if you think that you might need  this configuration in the future, you can pause an attachment to stop being charged. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
+
+```sh
+ibmcloud security-compliance attachment delete --attachment-id ATTACHMENT-ID --profile-id PROFILE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+```
+
+
+#### Command options
+{: #security-compliance-attachments-delete-cli-options}
+
+`--attachment-id` (string)
+:   The attachment ID. Required.
+
+    The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$|^$/`.
+
 `--profile-id` (string)
-:   The ID of the profile that is specified in the attachment.
+:   The profile ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
 
@@ -1827,82 +1870,36 @@ ibmcloud security-compliance attachments attachment-create --profiles-id PROFILE
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-attachments-attachment-create-examples}
+{: #security-compliance-attachments-delete-examples}
 
 ```sh
-ibmcloud security-compliance attachments attachment-create \
-    --profiles-id=exampleString \
-    --attachments='[{"id": "130003ea8bfa43c5aacea07a86da3000", "name": "account-0d8c3805dfea40aa8ad02265a18eb12b", "description": "Test description", "scope": [{"environment": "ibm-cloud", "properties": [{"name": "scope_id", "value": "cg3335893hh1428692d6747cf300yeb5"}]}], "status": "enabled", "schedule": "every_30_days", "notifications": {"enabled": false, "controls": {"threshold_limit": 15, "failed_control_ids": []}}, "attachment_parameters": [{"assessment_type": "Automated", "assessment_id": "rule-a637949b-7e51-46c4-afd4-b96619001bf1", "parameter_name": "session_invalidation_in_seconds", "parameter_value": "120", "parameter_display_name": "Sign out due to inactivity in seconds", "parameter_type": "numeric"}]}]' \
+ibmcloud security-compliance attachment delete \
+    --attachment-id=exampleString \
     --profile-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance attachments profile-attachment-delete`
-{: #security-compliance-cli-attachments-profile-attachment-delete-command}
-
-Delete an attachment. Alternatively, if you think that you might need  this configuration in the future, you can pause an attachment to stop being charged. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
-
-```sh
-ibmcloud security-compliance attachments profile-attachment-delete --attachment-id ATTACHMENT-ID --profiles-id PROFILES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
-```
-
-
-#### Command options
-{: #security-compliance-attachments-profile-attachment-delete-cli-options}
-
-`--attachment-id` (string)
-:   The attachment ID. Required.
-
-    The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$|^$/`.
-
-`--profiles-id` (string)
-:   The profile ID. Required.
-
-    The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
-
-`--x-correlation-id` (string)
-:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
-
-    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
-
-`--x-request-id` (string)
-:   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is not used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
-
-    The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
-
-#### Example
-{: #security-compliance-attachments-profile-attachment-delete-examples}
-
-```sh
-ibmcloud security-compliance attachments profile-attachment-delete \
-    --attachment-id=exampleString \
-    --profiles-id=exampleString \
-    --x-correlation-id=exampleString \
-    --x-request-id=exampleString
-```
-{: pre}
-
-### `ibmcloud security-compliance attachments profile-attachment-get`
-{: #security-compliance-cli-attachments-profile-attachment-get-command}
+### `ibmcloud security-compliance attachment get`
+{: #security-compliance-cli-attachments-get-command}
 
 View the details of an attachment a profile by providing the attachment ID.  You can find this value in the Security and Compliance Center UI. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
 
 ```sh
-ibmcloud security-compliance attachments profile-attachment-get --attachment-id ATTACHMENT-ID --profiles-id PROFILES-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance attachment get --attachment-id ATTACHMENT-ID --profile-id PROFILE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-attachments-profile-attachment-get-cli-options}
+{: #security-compliance-attachments-get-cli-options}
 
 `--attachment-id` (string)
 :   The attachment ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$|^$/`.
 
-`--profiles-id` (string)
+`--profile-id` (string)
 :   The profile ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
@@ -1918,36 +1915,36 @@ ibmcloud security-compliance attachments profile-attachment-get --attachment-id 
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-attachments-profile-attachment-get-examples}
+{: #security-compliance-attachments-get-examples}
 
 ```sh
-ibmcloud security-compliance attachments profile-attachment-get \
+ibmcloud security-compliance attachment get \
     --attachment-id=exampleString \
-    --profiles-id=exampleString \
+    --profile-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance attachments profile-attachment-replace`
-{: #security-compliance-cli-attachments-profile-attachment-replace-command}
+### `ibmcloud security-compliance attachment update`
+{: #security-compliance-cli-attachments-update-command}
 
 Update an attachment that is linked to a profile to evaluate your resources  on a recurring schedule, or on-demand. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
 
 ```sh
-ibmcloud security-compliance attachments profile-attachment-replace --attachment-id ATTACHMENT-ID --profiles-id PROFILES-ID [--id ID] [--profile-id PROFILE-ID] [--account-id ACCOUNT-ID] [--instance-id INSTANCE-ID] [--scope SCOPE] [--created-on CREATED-ON] [--created-by CREATED-BY] [--updated-on UPDATED-ON] [--updated-by UPDATED-BY] [--status STATUS] [--schedule SCHEDULE] [--notifications NOTIFICATIONS] [--attachment-parameters ATTACHMENT-PARAMETERS] [--last-scan LAST-SCAN] [--next-scan-time NEXT-SCAN-TIME] [--name NAME] [--description DESCRIPTION] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance attachment update --attachment-id ATTACHMENT-ID --profile-id PROFILE-ID [--id ID] [--account-id ACCOUNT-ID] [--instance-id INSTANCE-ID] [--scope SCOPE] [--created-on CREATED-ON] [--created-by CREATED-BY] [--updated-on UPDATED-ON] [--updated-by UPDATED-BY] [--status STATUS] [--schedule SCHEDULE] [--notifications NOTIFICATIONS] [--attachment-parameters ATTACHMENT-PARAMETERS] [--last-scan LAST-SCAN] [--next-scan-time NEXT-SCAN-TIME] [--name NAME] [--description DESCRIPTION] [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-attachments-profile-attachment-replace-cli-options}
+{: #security-compliance-attachments-update-cli-options}
 
 `--attachment-id` (string)
 :   The attachment ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$|^$/`.
 
-`--profiles-id` (string)
+`--profile-id` (string)
 :   The profile ID. Required.
 
     The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
@@ -1956,11 +1953,6 @@ ibmcloud security-compliance attachments profile-attachment-replace --attachment
 :   The ID of the attachment.
 
     The maximum length is `32` characters. The minimum length is `32` characters. The value must match regular expression `/^[a-zA-Z0-9-]*$/`.
-
-`--profile-id` (string)
-:   The ID of the profile that is specified in the attachment.
-
-    The maximum length is `36` characters. The minimum length is `36` characters. The value must match regular expression `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`.
 
 `--account-id` (string)
 :   The account ID that is associated to the attachment.
@@ -2067,14 +2059,13 @@ ibmcloud security-compliance attachments profile-attachment-replace --attachment
 :   The time when the last scan started. This option provides a value for a sub-field of the JSON option 'last-scan'. It is mutually exclusive with that option.
 
 #### Examples
-{: #security-compliance-attachments-profile-attachment-replace-examples}
+{: #security-compliance-attachments-update-examples}
 
 ```sh
-ibmcloud security-compliance attachments profile-attachment-replace \
+ibmcloud security-compliance attachment update \
     --attachment-id=exampleString \
-    --profiles-id=exampleString \
-    --id=exampleString \
     --profile-id=exampleString \
+    --id=exampleString \
     --account-id=exampleString \
     --instance-id=exampleString \
     --scope='[{"environment": "ibm-cloud", "properties": [{"name": "scope_id", "value": "cg3335893hh1428692d6747cf300yeb5"}]}]' \
@@ -2097,11 +2088,10 @@ ibmcloud security-compliance attachments profile-attachment-replace \
 
 Alternatively, granular options are available for for the sub-fields of JSON string options:
 ```sh
-ibmcloud security-compliance attachments profile-attachment-replace \
+ibmcloud security-compliance attachment update \
     --attachment-id=exampleString \
-    --profiles-id=exampleString \
-    --id=exampleString \
     --profile-id=exampleString \
+    --id=exampleString \
     --account-id=exampleString \
     --instance-id=exampleString \
     --scope=multiCloudScope \
@@ -2125,18 +2115,18 @@ ibmcloud security-compliance attachments profile-attachment-replace \
 ```
 {: pre}
 
-### `ibmcloud security-compliance attachments scan-create`
-{: #security-compliance-cli-attachments-scan-create-command}
+### `ibmcloud security-compliance attachment scan`
+{: #security-compliance-cli-attachments-scan-command}
 
 Create a scan to evaluate your resources on a recurring basis or on demand.
 
 ```sh
-ibmcloud security-compliance attachments scan-create --attachment-id ATTACHMENT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance attachment scan --attachment-id ATTACHMENT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-attachments-scan-create-cli-options}
+{: #security-compliance-attachments-scan-cli-options}
 
 `--attachment-id` (string)
 :   The attachment ID of a profile. Required.
@@ -2154,29 +2144,29 @@ ibmcloud security-compliance attachments scan-create --attachment-id ATTACHMENT-
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-attachments-scan-create-examples}
+{: #security-compliance-attachments-scan-examples}
 
 ```sh
-ibmcloud security-compliance attachments scan-create \
+ibmcloud security-compliance attachment scan \
     --attachment-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance attachments account-list`
-{: #security-compliance-cli-attachments-account-list-command}
+### `ibmcloud security-compliance attachment list`
+{: #security-compliance-cli-attachments-list-all-command}
 
 View all of the attachments that are linked to an account. An attachment is the association between the set of resources that you want to evaluate  and a profile that contains the specific controls that you want to use. For more information, see [Running an evaluation for IBM Cloud](/docs/security-compliance?topic=security-compliance-scan-resources).
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud security-compliance attachments account-list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--start START]
+ibmcloud security-compliance attachment list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--limit LIMIT] [--start START]
 ```
 
 
 #### Command options
-{: #security-compliance-attachments-account-list-cli-options}
+{: #security-compliance-attachments-list-all-cli-options}
 
 `--x-correlation-id` (string)
 :   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
@@ -2199,13 +2189,13 @@ ibmcloud security-compliance attachments account-list [--x-correlation-id X-CORR
     The maximum length is `1024` characters. The minimum length is `0` characters. The value must match regular expression `/.*/`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for attachments-account-list.
+:   Invoke multiple requests to display all pages of the collection for attachments-list-all.
 
 #### Example
-{: #security-compliance-attachments-account-list-examples}
+{: #security-compliance-attachments-list-all-examples}
 
 ```sh
-ibmcloud security-compliance attachments account-list \
+ibmcloud security-compliance attachment list \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
     --limit=10 \
@@ -2216,25 +2206,25 @@ ibmcloud security-compliance attachments account-list \
 ## Reports
 {: #security-compliance-reports-cli}
 
-Commands for Reports resource.
+Commands for Report resources.
 
 ```sh
-ibmcloud security-compliance reports --help
+ibmcloud security-compliance report --help
 ```
 
 
-### `ibmcloud security-compliance reports latest-reports-get`
-{: #security-compliance-cli-reports-latest-reports-get-command}
+### `ibmcloud security-compliance report latest`
+{: #security-compliance-cli-reports-get-latest-command}
 
 Retrieve the latest reports, which are grouped by profile ID, scope ID, and attachment ID. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 
 ```sh
-ibmcloud security-compliance reports latest-reports-get [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--sort SORT]
+ibmcloud security-compliance report latest [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--sort SORT]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-latest-reports-get-cli-options}
+{: #security-compliance-reports-get-latest-cli-options}
 
 `--x-correlation-id` (string)
 :   The supplied or generated value of this header is logged for a request and repeated in a response header for the corresponding response. The same value is used for downstream requests and retries of those requests. If a value of this header is not supplied in a request, the service generates a random (version 4) UUID.
@@ -2252,24 +2242,24 @@ ibmcloud security-compliance reports latest-reports-get [--x-correlation-id X-CO
     The maximum length is `32` characters. The minimum length is `1` character. The value must match regular expression `/^[\\-]?[a-z0-9_]+$/`.
 
 #### Example
-{: #security-compliance-reports-latest-reports-get-examples}
+{: #security-compliance-reports-get-latest-examples}
 
 ```sh
-ibmcloud security-compliance reports latest-reports-get \
+ibmcloud security-compliance report latest \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
     --sort=profile_name
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports list`
+### `ibmcloud security-compliance report list`
 {: #security-compliance-cli-reports-list-command}
 
 Retrieve a page of reports that are filtered by the specified parameters. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud security-compliance reports list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--attachment-id ATTACHMENT-ID] [--group-id GROUP-ID] [--profile-id PROFILE-ID] [--type TYPE] [--start START] [--limit LIMIT] [--sort SORT]
+ibmcloud security-compliance report list [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--attachment-id ATTACHMENT-ID] [--group-id GROUP-ID] [--profile-id PROFILE-ID] [--type TYPE] [--start START] [--limit LIMIT] [--sort SORT]
 ```
 
 
@@ -2328,7 +2318,7 @@ ibmcloud security-compliance reports list [--x-correlation-id X-CORRELATION-ID] 
 {: #security-compliance-reports-list-examples}
 
 ```sh
-ibmcloud security-compliance reports list \
+ibmcloud security-compliance report list \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
     --attachment-id=exampleString \
@@ -2341,18 +2331,18 @@ ibmcloud security-compliance reports list \
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-get`
-{: #security-compliance-cli-reports-report-get-command}
+### `ibmcloud security-compliance report get`
+{: #security-compliance-cli-reports-get-command}
 
 Retrieve a report by specifying its ID. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 
 ```sh
-ibmcloud security-compliance reports report-get --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance report get --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-get-cli-options}
+{: #security-compliance-reports-get-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2370,28 +2360,28 @@ ibmcloud security-compliance reports report-get --report-id REPORT-ID [--x-corre
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-reports-report-get-examples}
+{: #security-compliance-reports-get-examples}
 
 ```sh
-ibmcloud security-compliance reports report-get \
+ibmcloud security-compliance report get \
     --report-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-summary-get`
-{: #security-compliance-cli-reports-report-summary-get-command}
+### `ibmcloud security-compliance report summary`
+{: #security-compliance-cli-reports-get-summary-command}
 
 Retrieve the complete summarized information for a report. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 
 ```sh
-ibmcloud security-compliance reports report-summary-get --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance report summary --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-summary-get-cli-options}
+{: #security-compliance-reports-get-summary-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2409,28 +2399,28 @@ ibmcloud security-compliance reports report-summary-get --report-id REPORT-ID [-
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-reports-report-summary-get-examples}
+{: #security-compliance-reports-get-summary-examples}
 
 ```sh
-ibmcloud security-compliance reports report-summary-get \
+ibmcloud security-compliance report summary \
     --report-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-controls-get`
-{: #security-compliance-cli-reports-report-controls-get-command}
+### `ibmcloud security-compliance report controls`
+{: #security-compliance-cli-reports-get-controls-command}
 
 Retrieve a sorted and filtered list of controls for the specified report. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 
 ```sh
-ibmcloud security-compliance reports report-controls-get --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--control-id CONTROL-ID] [--control-name CONTROL-NAME] [--control-description CONTROL-DESCRIPTION] [--control-category CONTROL-CATEGORY] [--status STATUS] [--sort SORT]
+ibmcloud security-compliance report controls --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--control-id CONTROL-ID] [--control-name CONTROL-NAME] [--control-description CONTROL-DESCRIPTION] [--control-category CONTROL-CATEGORY] [--status STATUS] [--sort SORT]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-controls-get-cli-options}
+{: #security-compliance-reports-get-controls-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2478,10 +2468,10 @@ ibmcloud security-compliance reports report-controls-get --report-id REPORT-ID [
     Allowable values are: `control_name`, `control_category`, `status`.
 
 #### Example
-{: #security-compliance-reports-report-controls-get-examples}
+{: #security-compliance-reports-get-controls-examples}
 
 ```sh
-ibmcloud security-compliance reports report-controls-get \
+ibmcloud security-compliance report controls \
     --report-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
@@ -2494,18 +2484,18 @@ ibmcloud security-compliance reports report-controls-get \
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-rule-get`
-{: #security-compliance-cli-reports-report-rule-get-command}
+### `ibmcloud security-compliance report rule`
+{: #security-compliance-cli-reports-get-rule-command}
 
 Retrieve the rule by specifying the report ID and rule ID. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 
 ```sh
-ibmcloud security-compliance reports report-rule-get --report-id REPORT-ID --rule-id RULE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance report get-rule --report-id REPORT-ID --rule-id RULE-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-rule-get-cli-options}
+{: #security-compliance-reports-get-rule-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2528,10 +2518,10 @@ ibmcloud security-compliance reports report-rule-get --report-id REPORT-ID --rul
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-reports-report-rule-get-examples}
+{: #security-compliance-reports-get-rule-examples}
 
 ```sh
-ibmcloud security-compliance reports report-rule-get \
+ibmcloud security-compliance report rule \
     --report-id=exampleString \
     --rule-id=rule-8d444f8c-fd1d-48de-bcaa-f43732568761 \
     --x-correlation-id=exampleString \
@@ -2539,19 +2529,19 @@ ibmcloud security-compliance reports report-rule-get \
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-evaluations-list`
-{: #security-compliance-cli-reports-report-evaluations-list-command}
+### `ibmcloud security-compliance report evaluations`
+{: #security-compliance-cli-reports-list-evaluations-command}
 
 Get a paginated list of evaluations for the specified report. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud security-compliance reports report-evaluations-list --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--assessment-id ASSESSMENT-ID] [--component-id COMPONENT-ID] [--target-id TARGET-ID] [--target-name TARGET-NAME] [--status STATUS] [--start START] [--limit LIMIT]
+ibmcloud security-compliance report evaluations --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--assessment-id ASSESSMENT-ID] [--component-id COMPONENT-ID] [--target-id TARGET-ID] [--target-name TARGET-NAME] [--status STATUS] [--start START] [--limit LIMIT]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-evaluations-list-cli-options}
+{: #security-compliance-reports-list-evaluations-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2604,13 +2594,13 @@ ibmcloud security-compliance reports report-evaluations-list --report-id REPORT-
     The default value is `50`. The maximum value is `100`. The minimum value is `0`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for reports-report-evaluations-list.
+:   Invoke multiple requests to display all pages of the collection for reports-list-evaluations.
 
 #### Example
-{: #security-compliance-reports-report-evaluations-list-examples}
+{: #security-compliance-reports-list-evaluations-examples}
 
 ```sh
-ibmcloud security-compliance reports report-evaluations-list \
+ibmcloud security-compliance report evaluations \
     --report-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
@@ -2624,19 +2614,19 @@ ibmcloud security-compliance reports report-evaluations-list \
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-resources-list`
-{: #security-compliance-cli-reports-report-resources-list-command}
+### `ibmcloud security-compliance report resources`
+{: #security-compliance-cli-reports-list-resources-command}
 
 Get a paginated list of resources for the specified report. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 Note: If the `--all-pages` option is not set, the command will only retrieve a single page of the collection.
 
 ```sh
-ibmcloud security-compliance reports report-resources-list --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--id ID] [--resource-name RESOURCE-NAME] [--account-id ACCOUNT-ID] [--component-id COMPONENT-ID] [--status STATUS] [--sort SORT] [--start START] [--limit LIMIT]
+ibmcloud security-compliance report resources --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--id ID] [--resource-name RESOURCE-NAME] [--account-id ACCOUNT-ID] [--component-id COMPONENT-ID] [--status STATUS] [--sort SORT] [--start START] [--limit LIMIT]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-resources-list-cli-options}
+{: #security-compliance-reports-list-resources-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2694,13 +2684,13 @@ ibmcloud security-compliance reports report-resources-list --report-id REPORT-ID
     The default value is `50`. The maximum value is `100`. The minimum value is `0`.
 
 `--all-pages` (bool)
-:   Invoke multiple requests to display all pages of the collection for reports-report-resources-list.
+:   Invoke multiple requests to display all pages of the collection for reports-list-resources.
 
 #### Example
-{: #security-compliance-reports-report-resources-list-examples}
+{: #security-compliance-reports-list-resources-examples}
 
 ```sh
-ibmcloud security-compliance reports report-resources-list \
+ibmcloud security-compliance report resources \
     --report-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
@@ -2715,18 +2705,18 @@ ibmcloud security-compliance reports report-resources-list \
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-tags-get`
-{: #security-compliance-cli-reports-report-tags-get-command}
+### `ibmcloud security-compliance report tags`
+{: #security-compliance-cli-reports-get-tags-command}
 
 Retrieve a list of tags for the specified report. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 
 ```sh
-ibmcloud security-compliance reports report-tags-get --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
+ibmcloud security-compliance report tags --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-tags-get-cli-options}
+{: #security-compliance-reports-get-tags-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2744,28 +2734,28 @@ ibmcloud security-compliance reports report-tags-get --report-id REPORT-ID [--x-
     The maximum length is `1024` characters. The minimum length is `1` character. The value must match regular expression `/^[a-zA-Z0-9 ,\\-_]+$/`.
 
 #### Example
-{: #security-compliance-reports-report-tags-get-examples}
+{: #security-compliance-reports-get-tags-examples}
 
 ```sh
-ibmcloud security-compliance reports report-tags-get \
+ibmcloud security-compliance report tags \
     --report-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString
 ```
 {: pre}
 
-### `ibmcloud security-compliance reports report-violations-drift-get`
-{: #security-compliance-cli-reports-report-violations-drift-get-command}
+### `ibmcloud security-compliance report violation-drift`
+{: #security-compliance-cli-reports-get-violation-drift-command}
 
 Get a list of report violation data points for the specified report and time frame. For more information, see [Viewing results](/docs/security-compliance?topic=security-compliance-results).
 
 ```sh
-ibmcloud security-compliance reports report-violations-drift-get --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--scan-time-duration SCAN-TIME-DURATION]
+ibmcloud security-compliance report violation-drift --report-id REPORT-ID [--x-correlation-id X-CORRELATION-ID] [--x-request-id X-REQUEST-ID] [--scan-time-duration SCAN-TIME-DURATION]
 ```
 
 
 #### Command options
-{: #security-compliance-reports-report-violations-drift-get-cli-options}
+{: #security-compliance-reports-get-violation-drift-cli-options}
 
 `--report-id` (string)
 :   The ID of the scan that is associated with a report. Required.
@@ -2788,10 +2778,10 @@ ibmcloud security-compliance reports report-violations-drift-get --report-id REP
     The default value is `0`. The maximum value is `366`. The minimum value is `0`.
 
 #### Example
-{: #security-compliance-reports-report-violations-drift-get-examples}
+{: #security-compliance-reports-get-violation-drift-examples}
 
 ```sh
-ibmcloud security-compliance reports report-violations-drift-get \
+ibmcloud security-compliance report violation-drift \
     --report-id=exampleString \
     --x-correlation-id=exampleString \
     --x-request-id=exampleString \
@@ -2896,7 +2886,7 @@ The following example shows the format of the ControlsInControlLib[] object.
     "control_specification_id" : "5c7d6f88-a92f-4734-9b49-bd22b0900184",
     "responsibility" : "user",
     "component_id" : "iam-identity",
-    "componenet_name" : "exampleString",
+    "component_name" : "exampleString",
     "environment" : "ibm-cloud",
     "control_specification_description" : "IBM cloud",
     "assessments_count" : 38,
@@ -3078,3 +3068,5 @@ The following example shows the format of the Target object.
 }
 ```
 {: codeblock}
+
+
