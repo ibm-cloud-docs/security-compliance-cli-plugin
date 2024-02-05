@@ -2,8 +2,8 @@ toc:
   properties:
     subcollection: security-compliance-cli-plugin
     audience: platform
-    href: /docs/security-compliance-cli
-    path: security-compliance-cli
+    href: /docs/security-compliance-cli-plugin
+    path: security-compliance-cli-plugin
     label: Security and Compliance Center CLI Reference
 
   entries:
